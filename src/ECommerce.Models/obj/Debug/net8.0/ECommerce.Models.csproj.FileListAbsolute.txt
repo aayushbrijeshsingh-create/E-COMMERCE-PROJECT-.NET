@@ -1,0 +1,11 @@
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\bin\Debug\net8.0\ECommerce.Models.deps.json
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\bin\Debug\net8.0\ECommerce.Models.dll
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\bin\Debug\net8.0\ECommerce.Models.pdb
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\obj\Debug\net8.0\ECommerce.Models.GeneratedMSBuildEditorConfig.editorconfig
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\obj\Debug\net8.0\ECommerce.Models.AssemblyInfoInputs.cache
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\obj\Debug\net8.0\ECommerce.Models.AssemblyInfo.cs
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\obj\Debug\net8.0\ECommerce.Models.csproj.CoreCompileInputs.cache
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\obj\Debug\net8.0\ECommerce.Models.dll
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\obj\Debug\net8.0\refint\ECommerce.Models.dll
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\obj\Debug\net8.0\ECommerce.Models.pdb
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Models\obj\Debug\net8.0\ref\ECommerce.Models.dll

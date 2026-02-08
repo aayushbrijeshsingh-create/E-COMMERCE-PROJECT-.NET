@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rG0fKDPWiUWpyIN2nPOYb+7b4riYt5XZ/Trq86rFwDY=",
+  "Source": "ECommerce.Web.UI",
+  "BasePath": "_content/ECommerce.Web.UI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,17 @@
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\obj\Debug\net8.0\ECommerce.Business.Logic.csproj.AssemblyReference.cache
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\obj\Debug\net8.0\ECommerce.Business.Logic.GeneratedMSBuildEditorConfig.editorconfig
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\obj\Debug\net8.0\ECommerce.Business.Logic.AssemblyInfoInputs.cache
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\obj\Debug\net8.0\ECommerce.Business.Logic.AssemblyInfo.cs
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\obj\Debug\net8.0\ECommerce.Business.Logic.csproj.CoreCompileInputs.cache
+D:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\bin\Debug\net8.0\ECommerce.Business.Logic.deps.json
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\bin\Debug\net8.0\ECommerce.Business.Logic.dll
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\bin\Debug\net8.0\ECommerce.Business.Logic.pdb
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\bin\Debug\net8.0\ECommerce.Models.dll
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\bin\Debug\net8.0\Infrastructure.dll
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\bin\Debug\net8.0\ECommerce.Models.pdb
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\bin\Debug\net8.0\Infrastructure.pdb
+D:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\obj\Debug\net8.0\ECommerc.D848984C.Up2Date
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\obj\Debug\net8.0\ECommerce.Business.Logic.dll
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\obj\Debug\net8.0\refint\ECommerce.Business.Logic.dll
+d:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\obj\Debug\net8.0\ECommerce.Business.Logic.pdb
+D:\E-COMMERCE PROJECT .NET\src\ECommerce.Business.Logic\obj\Debug\net8.0\ref\ECommerce.Business.Logic.dll
