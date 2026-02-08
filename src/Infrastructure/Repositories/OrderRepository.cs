@@ -10,7 +10,7 @@ public class OrderRepository : Repository<Order>, IOrderRepository
     {
     }
 
-    public async Task<IEnumerable<Order>> GetOrdersByCustomerAsync(Guid customerId)
+    public async Task<IEnumerable<Order>> GetOrdersByCustomerAsync(string customerId)
     {
         return await _context.Orders
             .Where(o => o.CustomerId == customerId && o.IsActive)
@@ -20,7 +20,7 @@ public class OrderRepository : Repository<Order>, IOrderRepository
             .ToListAsync();
     }
 
-    public async Task<IEnumerable<Order>> GetByCustomerIdAsync(Guid customerId)
+    public async Task<IEnumerable<Order>> GetByCustomerIdAsync(string customerId)
     {
         return await _context.Orders
             .Where(o => o.CustomerId == customerId && o.IsActive)

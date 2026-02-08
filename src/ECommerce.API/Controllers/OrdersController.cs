@@ -19,10 +19,9 @@ public class OrdersController : ControllerBase
         _orderService = orderService;
     }
 
-    private Guid GetCurrentUserId()
+    private string GetCurrentUserId()
     {
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        return Guid.Parse(userId!);
+        return User.FindFirstValue(ClaimTypes.NameIdentifier)!;
     }
 
     [HttpGet]
@@ -38,7 +37,7 @@ public class OrdersController : ControllerBase
     public async Task<IActionResult> GetOrder(Guid id)
     {
         var order = await _orderService.GetOrderByIdAsync(id, GetCurrentUserId());
-        return Ok(ApiResponse<OrderDto>.Ok(order));
+        return Ok(ApiResponse<OrderDto>.Ok(order!));
     }
 
     [HttpPost]

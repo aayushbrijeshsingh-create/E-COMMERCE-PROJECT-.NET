@@ -3,7 +3,7 @@ namespace ECommerce.Models.DTOs;
 public class OrderDto
 {
     public Guid Id { get; set; }
-    public Guid CustomerId { get; set; }
+    public string CustomerId { get; set; } = string.Empty;
     public string CustomerName { get; set; } = string.Empty;
     public string Status { get; set; } = string.Empty;
     public decimal TotalAmount { get; set; }
@@ -22,7 +22,7 @@ public class OrderItemDto
 
 public class CreateOrderDto
 {
-    public Guid CustomerId { get; set; }
+    public string CustomerId { get; set; } = string.Empty;
     public List<CreateOrderItemDto> Items { get; set; } = new();
 }
 

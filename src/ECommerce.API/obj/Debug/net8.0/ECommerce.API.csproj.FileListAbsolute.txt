@@ -148,9 +148,10 @@ d:\E-COMMERCE PROJECT .NET\src\ECommerce.Api\obj\Debug\net8.0\staticwebassets\ms
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ECommerce.Api.props
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Api\obj\Debug\net8.0\staticwebassets.pack.json
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Api\obj\Debug\net8.0\scopedcss\bundle\ECommerce.Api.styles.css
-d:\E-COMMERCE PROJECT .NET\src\ECommerce.Api\obj\Debug\net8.0\ECommerc.4A86E8C6.Up2Date
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Api\obj\Debug\net8.0\ECommerce.Api.dll
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Api\obj\Debug\net8.0\refint\ECommerce.Api.dll
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Api\obj\Debug\net8.0\ECommerce.Api.pdb
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Api\obj\Debug\net8.0\ECommerce.Api.genruntimeconfig.cache
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Api\obj\Debug\net8.0\ref\ECommerce.Api.dll
+D:\E-COMMERCE PROJECT .NET\src\ECommerce.API\obj\Debug\net8.0\ECommerce.API.sourcelink.json
+D:\E-COMMERCE PROJECT .NET\src\ECommerce.API\obj\Debug\net8.0\ECommerc.203F780B.Up2Date

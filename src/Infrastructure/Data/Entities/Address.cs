@@ -2,7 +2,7 @@ namespace Infrastructure.Data.Entities;
 
 public class Address : BaseEntity
 {
-    public Guid CustomerId { get; set; }
+    public string CustomerId { get; set; } = string.Empty;
     public Customer? Customer { get; set; }
     public string Line1 { get; set; } = string.Empty;
     public string? Line2 { get; set; }

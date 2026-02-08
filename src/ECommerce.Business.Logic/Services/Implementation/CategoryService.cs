@@ -20,7 +20,7 @@ public class CategoryService : ICategoryService
     public async Task<List<CategoryDto>> GetAllCategoriesAsync()
     {
         var categories = await _categoryRepository.GetAllAsync();
-        return _mapper.Map<List<CategoryDto>>(categories);
+        return _mapper.Map<List<CategoryDto>>(categories) ?? new List<CategoryDto>();
     }
 
     public async Task<CategoryDto?> GetCategoryByIdAsync(Guid id)
@@ -31,13 +31,13 @@ public class CategoryService : ICategoryService
 
     public async Task<CategoryDto> CreateCategoryAsync(CreateCategoryDto dto)
     {
-        var category = _mapper.Map<Category>(dto);
+        var category = _mapper.Map<Category>(dto) ?? throw new InvalidOperationException("Failed to map category");
         category.Id = Guid.NewGuid();
         
         await _categoryRepository.AddAsync(category);
         await _categoryRepository.SaveChangesAsync();
         
-        return _mapper.Map<CategoryDto>(category);
+        return _mapper.Map<CategoryDto>(category) ?? throw new InvalidOperationException("Failed to map category");
     }
 
     public async Task UpdateCategoryAsync(UpdateCategoryDto dto)

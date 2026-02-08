@@ -11,9 +11,14 @@ public class JwtSettings
     public string SecretKey { get; set; } = string.Empty;
 
     /// <summary>
-    /// Token expiration time in minutes
+    /// Access token expiration time in minutes
     /// </summary>
-    public int TokenExpirationMinutes { get; set; } = 60;
+    public int AccessTokenExpiryMinutes { get; set; } = 60;
+
+    /// <summary>
+    /// Refresh token expiration time in days
+    /// </summary>
+    public int RefreshTokenExpiryDays { get; set; } = 7;
 
     /// <summary>
     /// Issuer of the JWT token

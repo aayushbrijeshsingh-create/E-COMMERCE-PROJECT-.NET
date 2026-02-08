@@ -10,7 +10,7 @@ public enum PaymentType
 
 public class PaymentMethod : BaseEntity
 {
-    public Guid CustomerId { get; set; }
+    public string CustomerId { get; set; } = string.Empty;
     public Customer? Customer { get; set; }
     public PaymentType Type { get; set; }
     public string Provider { get; set; } = string.Empty;

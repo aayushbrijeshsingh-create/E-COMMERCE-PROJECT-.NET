@@ -40,6 +40,6 @@ public class PaymentsController : ControllerBase
     public async Task<IActionResult> GetPaymentByOrder(Guid orderId)
     {
         var payment = await _paymentService.GetPaymentByOrderIdAsync(orderId);
-        return Ok(ApiResponse<PaymentDto>.Ok(payment));
+        return Ok(ApiResponse<PaymentDto>.Ok(payment!));
     }
 }

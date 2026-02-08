@@ -29,3 +29,4 @@ d:\E-COMMERCE PROJECT .NET\src\ECommerce.Web.UI\obj\Debug\net8.0\refint\ECommerc
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Web.UI\obj\Debug\net8.0\ECommerce.Web.UI.pdb
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Web.UI\obj\Debug\net8.0\ECommerce.Web.UI.genruntimeconfig.cache
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Web.UI\obj\Debug\net8.0\ref\ECommerce.Web.UI.dll
+D:\E-COMMERCE PROJECT .NET\src\ECommerce.Web.UI\obj\Debug\net8.0\ECommerce.Web.UI.sourcelink.json

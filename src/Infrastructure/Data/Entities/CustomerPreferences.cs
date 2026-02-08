@@ -2,7 +2,7 @@ namespace Infrastructure.Data.Entities;
 
 public class CustomerPreferences : BaseEntity
 {
-    public Guid CustomerId { get; set; }
+    public string CustomerId { get; set; } = string.Empty;
     public Customer? Customer { get; set; }
     public bool ReceiveEmails { get; set; } = true;
     public bool ReceiveSms { get; set; } = false;

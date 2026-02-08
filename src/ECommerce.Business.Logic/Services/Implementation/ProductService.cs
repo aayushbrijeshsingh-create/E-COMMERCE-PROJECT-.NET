@@ -26,7 +26,7 @@ public class ProductService : IProductService
     public async Task<List<ProductDto>> GetAllProductsAsync()
     {
         var products = await _productRepository.GetAllAsync();
-        return _mapper.Map<List<ProductDto>>(products);
+        return _mapper.Map<List<ProductDto>>(products) ?? new List<ProductDto>();
     }
 
     public async Task<ProductDto?> GetProductByIdAsync(Guid id)
@@ -46,18 +46,16 @@ public class ProductService : IProductService
         var productDtos = _mapper.Map<List<ProductDto>>(products);
         
         return PagedApiResponse<List<ProductDto>>.Ok(
-            productDtos, pageNumber, pageSize, totalCount);
+            productDtos ?? new List<ProductDto>(), pageNumber, pageSize, totalCount);
     }
 
     public async Task<ProductDto> CreateProductAsync(CreateProductDto dto)
     {
-        var product = _mapper.Map<Product>(dto);
+        var product = _mapper.Map<Product>(dto) ?? throw new InvalidOperationException("Failed to map product");
         product.Id = Guid.NewGuid();
         
         await _productRepository.AddAsync(product);
-        await _productRepository.SaveChangesAsync();
-        
-        return _mapper.Map<ProductDto>(product);
+        return _mapper.Map<ProductDto>(product) ?? throw new InvalidOperationException("Failed to map product");
     }
 
     public async Task UpdateProductAsync(UpdateProductDto dto)

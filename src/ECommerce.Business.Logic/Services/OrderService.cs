@@ -4,10 +4,10 @@ namespace ECommerce.Business.Logic.Services;
 
 public interface IOrderService
 {
-    Task<List<OrderSummaryDto>> GetOrdersByCustomerIdAsync(Guid customerId);
-    Task<OrderDto?> GetOrderByIdAsync(Guid orderId, Guid customerId);
-    Task<OrderDto> CreateOrderAsync(Guid customerId);
-    Task<OrderDto> CreateOrderFromCartAsync(Guid customerId);
+    Task<List<OrderSummaryDto>> GetOrdersByCustomerIdAsync(string customerId);
+    Task<OrderDto?> GetOrderByIdAsync(Guid orderId, string customerId);
+    Task<OrderDto> CreateOrderAsync(string customerId);
+    Task<OrderDto> CreateOrderFromCartAsync(string customerId);
     Task UpdateOrderStatusAsync(Guid orderId, string status);
     Task<List<OrderSummaryDto>> GetAllOrdersAsync();
 }

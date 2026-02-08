@@ -30,7 +30,7 @@ public class CategoriesController : ControllerBase
     public async Task<IActionResult> GetCategory(Guid id)
     {
         var category = await _categoryService.GetCategoryByIdAsync(id);
-        return Ok(ApiResponse<CategoryDto>.Ok(category));
+        return Ok(ApiResponse<CategoryDto>.Ok(category!));
     }
 
     [HttpPost]

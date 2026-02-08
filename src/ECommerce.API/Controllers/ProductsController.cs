@@ -43,7 +43,7 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> GetProduct(Guid id)
     {
         var product = await _productService.GetProductByIdAsync(id);
-        return Ok(ApiResponse<ProductDto>.Ok(product));
+        return Ok(ApiResponse<ProductDto>.Ok(product!));
     }
 
     [HttpPost]

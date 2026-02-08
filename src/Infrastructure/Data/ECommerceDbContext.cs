@@ -47,6 +47,9 @@ public class ECommerceDbContext : IdentityDbContext<Customer>
     
     // Reviews
     public DbSet<Review> Reviews => Set<Review>();
+    
+    // Customer Preferences
+    public DbSet<CustomerPreferences> CustomerPreferences => Set<CustomerPreferences>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -93,6 +96,11 @@ public class ECommerceDbContext : IdentityDbContext<Customer>
             entity.HasMany(c => c.Wishlists)
                   .WithOne(w => w.Customer)
                   .HasForeignKey(w => w.CustomerId);
+            
+            // Configure one-to-one relationship with CustomerPreferences
+            entity.HasOne(c => c.Preferences)
+                  .WithOne()
+                  .HasForeignKey<CustomerPreferences>(cp => cp.CustomerId);
         });
 
         // Configure Address entity

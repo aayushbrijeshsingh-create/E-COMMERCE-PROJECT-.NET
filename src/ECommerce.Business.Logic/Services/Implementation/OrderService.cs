@@ -25,7 +25,7 @@ public class OrderService : IOrderService
         _mapper = mapper;
     }
 
-    public async Task<List<OrderSummaryDto>> GetOrdersByCustomerIdAsync(Guid customerId)
+    public async Task<List<OrderSummaryDto>> GetOrdersByCustomerIdAsync(string customerId)
     {
         var orders = await _orderRepository.GetByCustomerIdAsync(customerId);
         return orders.Select(o => new OrderSummaryDto
@@ -38,7 +38,7 @@ public class OrderService : IOrderService
         }).ToList();
     }
 
-    public async Task<OrderDto?> GetOrderByIdAsync(Guid orderId, Guid customerId)
+    public async Task<OrderDto?> GetOrderByIdAsync(Guid orderId, string customerId)
     {
         var order = await _orderRepository.GetByIdAsync(orderId);
         if (order == null || order.CustomerId != customerId)
@@ -47,7 +47,7 @@ public class OrderService : IOrderService
         return MapToOrderDto(order);
     }
 
-    public async Task<OrderDto> CreateOrderAsync(Guid customerId)
+    public async Task<OrderDto> CreateOrderAsync(string customerId)
     {
         var order = new Order
         {
@@ -63,7 +63,7 @@ public class OrderService : IOrderService
         return MapToOrderDto(order);
     }
 
-    public async Task<OrderDto> CreateOrderFromCartAsync(Guid customerId)
+    public async Task<OrderDto> CreateOrderFromCartAsync(string customerId)
     {
         var cart = await _cartRepository.GetByCustomerIdAsync(customerId);
         if (cart == null || !cart.Items.Any())

@@ -4,6 +4,6 @@ namespace Infrastructure.Repositories;
 
 public interface ICartRepository : IRepository<Cart>
 {
-    Task<Cart?> GetByCustomerIdAsync(Guid customerId);
-    Task<Cart?> GetByCustomerIdWithItemsAsync(Guid customerId);
+    Task<Cart?> GetByCustomerIdAsync(string customerId);
+    Task<Cart?> GetByCustomerIdWithItemsAsync(string customerId);
 }

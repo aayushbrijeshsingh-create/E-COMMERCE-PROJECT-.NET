@@ -4,6 +4,7 @@ using System.Text;
 using AutoMapper;
 using ECommerce.Models.DTOs;
 using ECommerce.Models.Exceptions;
+using ECommerce.Models.Settings;
 using Infrastructure.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
@@ -52,7 +53,7 @@ public class AuthService : IAuthService
             Token = token,
             RefreshToken = refreshToken,
             ExpiresAt = DateTime.UtcNow.AddMinutes(_jwtSettings.AccessTokenExpiryMinutes),
-            User = _mapper.Map<UserDto>(user)
+            User = _mapper.Map<UserDto>(user) ?? throw new InvalidOperationException("Failed to map user")
         };
     }
 
@@ -89,14 +90,15 @@ public class AuthService : IAuthService
             Token = token,
             RefreshToken = refreshToken,
             ExpiresAt = DateTime.UtcNow.AddMinutes(_jwtSettings.AccessTokenExpiryMinutes),
-            User = _mapper.Map<UserDto>(user)
+            User = _mapper.Map<UserDto>(user) ?? throw new InvalidOperationException("Failed to map user")
         };
     }
 
     public async Task<AuthResponseDto> RefreshTokenAsync(RefreshTokenDto dto)
     {
         var principal = GetPrincipalFromExpiredToken(dto.Token);
-        var userEmail = principal.FindFirstValue(ClaimTypes.Email);
+        var userEmail = principal.FindFirstValue(ClaimTypes.Email) 
+            ?? throw new UnauthorizedException("Invalid token - no email claim");
         
         var user = await _userManager.FindByEmailAsync(userEmail);
         if (user == null || user.RefreshToken != dto.RefreshToken || 
@@ -115,32 +117,35 @@ public class AuthService : IAuthService
             Token = token,
             RefreshToken = refreshToken,
             ExpiresAt = DateTime.UtcNow.AddMinutes(_jwtSettings.AccessTokenExpiryMinutes),
-            User = _mapper.Map<UserDto>(user)
+            User = _mapper.Map<UserDto>(user) ?? throw new InvalidOperationException("Failed to map user")
         };
     }
 
-    public async Task<bool> ValidateTokenAsync(string token)
+    public Task<bool> ValidateTokenAsync(string token)
     {
-        try
+        return Task.Run(() =>
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.UTF8.GetBytes(_jwtSettings.SecretKey);
-            
-            tokenHandler.ValidateToken(token, new TokenValidationParameters
+            try
             {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                ClockSkew = TimeSpan.Zero
-            }, out _);
-            
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes(_jwtSettings.SecretKey);
+                
+                tokenHandler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
+                }, out _);
+                
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        });
     }
 
     public async Task<UserDto?> GetUserByIdAsync(Guid userId)
@@ -161,10 +166,10 @@ public class AuthService : IAuthService
         var claims = new List<Claim>
         {
             new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.Email, user.Email),
+            new Claim(JwtRegisteredClaimNames.Email, user.Email ?? string.Empty),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim("firstName", user.FirstName),
-            new Claim("lastName", user.LastName)
+            new Claim("firstName", user.FirstName ?? string.Empty),
+            new Claim("lastName", user.LastName ?? string.Empty)
         };
         
         claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
@@ -209,13 +214,4 @@ public class AuthService : IAuthService
         
         return principal;
     }
-}
-
-public class JwtSettings
-{
-    public string SecretKey { get; set; } = string.Empty;
-    public string Issuer { get; set; } = string.Empty;
-    public string Audience { get; set; } = string.Empty;
-    public int AccessTokenExpiryMinutes { get; set; } = 60;
-    public int RefreshTokenExpiryDays { get; set; } = 7;
 }

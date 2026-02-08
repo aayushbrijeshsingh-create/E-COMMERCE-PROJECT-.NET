@@ -216,3 +216,4 @@ d:\E-COMMERCE PROJECT .NET\src\ECommerce.Tests\obj\Debug\net8.0\refint\ECommerce
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Tests\obj\Debug\net8.0\ECommerce.Tests.pdb
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Tests\obj\Debug\net8.0\ECommerce.Tests.genruntimeconfig.cache
 d:\E-COMMERCE PROJECT .NET\src\ECommerce.Tests\obj\Debug\net8.0\ref\ECommerce.Tests.dll
+D:\E-COMMERCE PROJECT .NET\src\ECommerce.Tests\obj\Debug\net8.0\ECommerce.Tests.sourcelink.json

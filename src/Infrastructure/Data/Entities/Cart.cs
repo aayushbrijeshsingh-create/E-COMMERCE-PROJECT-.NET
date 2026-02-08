@@ -2,7 +2,7 @@ namespace Infrastructure.Data.Entities;
 
 public class Cart : BaseEntity
 {
-    public Guid CustomerId { get; set; }
+    public string CustomerId { get; set; } = string.Empty;
     public Customer? Customer { get; set; }
     public List<CartItem> Items { get; set; } = new();
 }

@@ -13,7 +13,7 @@ public enum OrderStatus
 
 public class Order : BaseEntity
 {
-    public Guid CustomerId { get; set; }
+    public string CustomerId { get; set; } = string.Empty;
     public Customer? Customer { get; set; }
     public DateTime OrderDate { get; set; } = DateTime.UtcNow;
     public OrderStatus Status { get; set; } = OrderStatus.PendingPayment;

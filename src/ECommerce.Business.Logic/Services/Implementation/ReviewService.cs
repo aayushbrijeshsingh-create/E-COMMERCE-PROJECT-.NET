@@ -25,7 +25,7 @@ public class ReviewService : IReviewService
     public async Task<List<ReviewDto>> GetReviewsByProductIdAsync(Guid productId)
     {
         var reviews = await _reviewRepository.GetByProductIdAsync(productId);
-        return _mapper.Map<List<ReviewDto>>(reviews);
+        return _mapper.Map<List<ReviewDto>>(reviews) ?? new List<ReviewDto>();
     }
 
     public async Task<ReviewDto> CreateReviewAsync(Guid userId, CreateReviewDto dto)
@@ -47,7 +47,7 @@ public class ReviewService : IReviewService
         await _reviewRepository.AddAsync(review);
         await _reviewRepository.SaveChangesAsync();
         
-        return _mapper.Map<ReviewDto>(review);
+        return _mapper.Map<ReviewDto>(review) ?? throw new InvalidOperationException("Failed to map review");
     }
 
     public async Task DeleteReviewAsync(Guid reviewId, Guid userId)
@@ -72,7 +72,7 @@ public class ReviewService : IReviewService
             ProductId = productId,
             AverageRating = reviews.Any() ? reviews.Average(r => r.Rating) : 0,
             TotalReviews = reviews.Count(),
-            RecentReviews = _mapper.Map<List<ReviewDto>>(reviews.OrderByDescending(r => r.CreatedAt).Take(5))
+            RecentReviews = _mapper.Map<List<ReviewDto>>(reviews.OrderByDescending(r => r.CreatedAt).Take(5)) ?? new List<ReviewDto>()
         };
     }
 }
